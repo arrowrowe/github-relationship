@@ -12,6 +12,12 @@ Inspired by [gaocegege/scala-github-relationship](https://github.com/gaocegege/s
 
 ![Mathematica Output Image](d2-mathematica.png)
 
+## Scala
+
+See [gaocegege/scala-github-relationship](https://github.com/gaocegege/scala-github-relationship). Sample output:
+
+![Scala Output Image](http://gaocegege.com/scala-github-relationship/example.png)
+
 ## Contribution
 
 Feel free to send a pull request or open issues.
