@@ -1,0 +1,25 @@
+$getFollowers = Import["https://api.github.com/users/" <> # <> "/followers", "JSON"] &;
+followersStored = {};
+getFollowers = If[
+    followersStored ~ KeyExistsQ ~ #,
+    # /. followersStored,
+    (
+        AppendTo[followersStored, # -> $getFollowers@#];
+        # /. followersStored
+    )
+] &;
+getNameFromFollowers = # /. {{a___, "login" -> x_, b___} :> x} &;
+getRelationshipFromFollowers[username_, followers_, deepth_: 1] := Join[
+    # -> username & /@ getNameFromFollowers@followers,
+    If[
+        deepth > 1,
+        Flatten[getRelationshipFromFollowers[#, getFollowers@#, deepth - 1] & /@ getNameFromFollowers@followers],
+        {}
+    ]
+];
+(* ======= Here you go ======= *)
+GraphPlot[
+    getRelationshipFromFollowers["arrowrowe", getFollowers@"arrowrowe", 2],
+    DirectedEdges -> True,
+    VertexLabeling -> True
+]
