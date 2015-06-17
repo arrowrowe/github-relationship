@@ -1,6 +1,6 @@
 # Github Relationship
 
-Visualize your GitHub relationship using [GitHub API v3](https://developer.github.com/v3/) in various languages.
+Visualize your GitHub relationship using [GitHub API v3](https://developer.github.com/v3/) in various languages. We have [Mathematica](#mathematica) and [Scala](#scala) now.
 
 **Note:** API rate limit is easily exceeded.
 
