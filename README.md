@@ -2,7 +2,7 @@
 
 Visualize your GitHub relationship using [GitHub API v3](https://developer.github.com/v3/) in various languages.
 
-Note: API rate limit is easily exceeded.
+**Note:** API rate limit is easily exceeded.
 
 Inspired by [gaocegege/scala-github-relationship](https://github.com/gaocegege/scala-github-relationship).
 
