@@ -8,7 +8,7 @@ Inspired by [gaocegege/scala-github-relationship](https://github.com/gaocegege/s
 
 ## Mathematica
 
-[Sample code](https://gist.github.com/arrowrowe/3c5f11186ebbf389ba59) and sample output:
+[Sample code](github-relationship.nb) and sample output:
 
 ![Mathematica Output Image](d2-mathematica.png)
 
