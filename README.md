@@ -2,7 +2,7 @@
 
 Visualize your GitHub relationship using [GitHub API v3](https://developer.github.com/v3/) in various languages.
 
-We have [Mathematica](#mathematica) and [Scala](#scala) now.
+We have [Mathematica](#mathematica), [Python](#python) and [Scala](#scala) now.
 
 **Note:** API rate limit is easily exceeded. Do NOT try 2-degree relationship if you have a lot of followers. Do NOT try 3-degree relationship unless you're really sure.
 
@@ -13,6 +13,10 @@ Inspired by [gaocegege/scala-github-relationship](https://github.com/gaocegege/s
 [Sample code](github-relationship.nb) and sample output:
 
 ![Mathematica Output Image](d2-mathematica.png)
+
+## Python
+
+[Sample code](github-relationship.py). Sorry that the output is really ugly...
 
 ## Scala
 
