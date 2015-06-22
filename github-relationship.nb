@@ -17,9 +17,14 @@ getRelationshipFromFollowers[username_, followers_, deepth_: 1] := Join[
         {}
     ]
 ];
+vrc = Text[Style[
+    Grid[{{#2}}, Frame -> All],
+    FontSize -> 8 + Ceiling[8 Log[1 + Length[#2 /. followersStored]]],
+    Background -> LightYellow
+], #1] &;
 (* ======= Here you go ======= *)
 GraphPlot[
-    getRelationshipFromFollowers["arrowrowe", getFollowers@"arrowrowe", 2],
+    DeleteDuplicates@getRelationshipFromFollowers["arrowrowe", getFollowers@"arrowrowe", 2],
     DirectedEdges -> True,
-    VertexLabeling -> True
+    VertexRenderingFunction -> vrc
 ]
