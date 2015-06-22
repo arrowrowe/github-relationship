@@ -4,7 +4,7 @@ Visualize your GitHub relationship using [GitHub API v3](https://developer.githu
 
 We have [Mathematica](#mathematica), [Python](#python) and [Scala](#scala) now.
 
-**Note:** API rate limit is easily exceeded. Do NOT try 2-degree relationship if you have a lot of followers. Do NOT try 3-degree relationship unless you're really sure.
+**Note:** [API rate limit](https://developer.github.com/v3/#abuse-rate-limits) is easily exceeded. Do NOT try 2-degree relationship if you have a lot of followers. Do NOT try 3-degree relationship unless you're really sure.
 
 Inspired by [gaocegege/scala-github-relationship](https://github.com/gaocegege/scala-github-relationship).
 
