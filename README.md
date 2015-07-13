@@ -1,4 +1,6 @@
 # Github Relationship - gh-pages
 
-See [master](https://github.com/arrowrowe/github-relationship).
+[Demo](https://arrowrowe.github.io/github-relationship?username=arrowrowe)
+
+See [master](https://github.com/arrowrowe/github-relationship) for more information.
 
