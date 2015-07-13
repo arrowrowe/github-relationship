@@ -25,7 +25,7 @@
   var beginUserName = oneGet('username') || prompt('Input your GitHub ID:', 'arrowrowe');
 
   if (beginUserName === 'arrowrowe') {
-    d3.json("_data.json", function (error, data) {
+    d3.json("data.json", function (error, data) {
       if (error) throw error;
       resolve(beginUserName, data);
     });
