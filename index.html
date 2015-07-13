@@ -12,6 +12,10 @@
   stroke-opacity: .6;
 }
 
+.label {
+  font-size: 10px;
+}
+
 </style>
 <body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
@@ -56,6 +60,13 @@ d3.json("_data.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return d.name; });
 
+  var texts = svg.selectAll("text.label")
+                 .data(graph.nodes)
+                 .enter().append("text")
+                 .attr("class", "label")
+                 .attr("fill", "black")
+                 .text(function(d) { return d.name; });
+
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
@@ -64,6 +75,8 @@ d3.json("_data.json", function(error, graph) {
 
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
+
+    texts.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   });
 });
 
