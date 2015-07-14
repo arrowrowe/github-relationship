@@ -49,21 +49,31 @@ function resolve(beginUserName, data) {
     links: []
   };
   var nodeIndexByName = {};
-  addUser(beginUserName, -1);
+  addNode(beginUserName, -1);
+  addFollowers(beginUserName);
   visualize(init(), graph);
 
-  function addUser(username, parentIndex) {
+  function addFollowers(username) {
+    var followers = data[username];
+    if (followers === undefined) return false;
+    var nodeIndex = nodeIndexByName[username];
+    followers.filter(function (follower) {
+      return addNode(follower.login, nodeIndex);
+    }).forEach(function (follower) {
+      addFollowers(follower.login);
+    });
+    return true;
+  }
 
+  function addNode(username, parentIndex) {
     var nodeIndex = nodeIndexByName[username],
         isNew = nodeIndex === undefined;
-
     if (isNew) {
       nodeIndex = nodeIndexByName[username] = graph.nodes.push({
         name: username,
         group: parentIndex
       }) - 1;
     }
-
     if (parentIndex >= 0) {
       graph.links.push({
         source: nodeIndex,
@@ -71,17 +81,7 @@ function resolve(beginUserName, data) {
         value: 1
       });
     }
-
-    if (!isNew) return true;
-
-    var followers = data[username];
-    if (followers === undefined) return false;
-
-    for (var i = 0; i < followers.length; i++) {
-      addUser(followers[i].login, nodeIndex);
-    }
-    return true;
-
+    return isNew;
   }
 }
 
@@ -124,12 +124,14 @@ function visualize(cvs, graph) {
   node.append("title")
       .text(function(d) { return d.name; });
 
+  /*
   var texts = cvs.svg.selectAll("text.label")
                      .data(graph.nodes)
                      .enter().append("text")
                      .attr("class", "label")
                      .attr("fill", "black")
                      .text(function(d) { return d.name; });
+   */
 
   cvs.force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
@@ -138,8 +140,11 @@ function visualize(cvs, graph) {
         .attr("y2", function(d) { return d.target.y; });
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
-    texts.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    // texts.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   });
+
+  // texts.style('visibility', 'hidden');
+
 }
 
 </script>
