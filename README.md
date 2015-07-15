@@ -26,7 +26,7 @@ Inspired by [gaocegege/scala-github-relationship](https://github.com/gaocegege/s
 
 See [gaocegege/scala-github-relationship](https://github.com/gaocegege/scala-github-relationship). Sample output:
 
-![Scala Output Image](http://gaocegege.com/scala-github-relationship/example.png)
+![Scala Output Image](scala.png)
 
 ## Contribution
 
